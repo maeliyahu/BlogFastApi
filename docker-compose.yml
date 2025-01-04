@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  fastapi-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: blog-fastapi-app
+    ports:
+      - "8000:8000"
+    environment:
+      - ENV=production
+    restart: always

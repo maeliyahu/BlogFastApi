@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  fastapi-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: blog-fastapi-app-debug
+    ports:
+      - "8000:8000"
+      - "5678:5678"  # Debugger port
+    environment:
+      - ENV=development
+      - DEBUGPY_PORT=5678
+    volumes:
+      - ./blog:/app

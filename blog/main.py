@@ -1,5 +1,6 @@
 import os
 from fastapi import FastAPI
+from utils import debug_util
 from routes import posts, users
 from db.database import engine, Base
 from prometheus_fastapi_instrumentator import Instrumentator
@@ -21,3 +22,4 @@ app.include_router(posts.router, prefix="/posts", tags=["Posts"])
 app.include_router(users.router, prefix="/users", tags=["Users"])
 
 
+debug_util.enable_debug()
